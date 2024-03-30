@@ -1,0 +1,23 @@
+<div class="cai-flex cai-flex-col cai-min-h-screen">
+    <div
+        class="cai-bg-neon-blue-color max-sm:cai-py-3 text-lg cai-p-4 cai-sticky cai-top-0 cai-shadow-md cai-z-[999]">
+        Login
+    </div>
+    <!-- <div class="min-h-screen flex items-center justify-center bg-gray-100"> -->
+    <form class="cai-mt-8 cai-space-y-6" novalidate (ngSubmit)="onLogin()">
+        <div class="cai-rounded-md cai-shadow-sm -space-y-px cai-w-64">
+            <input matInput placeholder="User Name" [(ngModel)]="userName" type="text" name="userName" required
+                class="cai-appearance-none cai-rounded-none cai-relative cai-block cai-w-64 cai-px-3 cai-py-2 cai- border-gray-300 cai-placeholder-gray-500 cai-text-gray-900 cai-rounded-t-md cai-focus:outline-none cai-focus:ring-indigo-500 cai-focus:border-indigo-500 cai-focus:z-10 cai-sm:text-sm">
+        </div>
+        <div>
+            <button mat-raised-button type="submit" class="cai-w-64 cai-flex cai-justify-center cai-py-2 cai-px-4 
+                cai-border cai-border-transparent cai-rounded-md cai-shadow-sm 
+                cai-text-sm cai-font-medium cai-text-white cai-bg-indigo-600 
+                cai-hover:bg-indigo-700 cai-focus:outline-none cai-focus:ring-2 
+                cai-focus:ring-offset-2 cai-focus:ring-indigo-500">
+                Login
+            </button>
+        </div>
+    </form>
+    <!-- </div> -->
+</div>

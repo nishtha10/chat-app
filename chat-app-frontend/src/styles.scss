@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.ng-select {
+  .ng-select-container {
+    @apply cai-bg-white-color cai-rounded cai-min-h-[42px] cai-items-center cai-border-none;
+
+    .ng-value-container {
+      @apply cai-pl-4 cai-items-center;
+    }
+  }
+
+  .ng-arrow-wrapper {
+    @apply cai-pr-4 cai-pl-2;
+
+    .ng-arrow {
+      @apply cai-border-[5px] cai-border-b-2 cai-border-transparent cai-border-t-neutral-500;
+    }
+  }
+
+  // .ng-has-value {
+  //   .ng-placeholder {
+  //     @apply cai-hidden;
+  //   }
+  // }
+
+  .ng-dropdown-panel {
+    @apply cai-border cai-border-powder-blue-color;
+
+    .ng-dropdown-panel-items {
+      .ng-option {
+        @apply cai-bg-white cai-text-xs sm:cai-text-base cai-px-4 cai-py-2;
+
+        &.ng-option-marked {
+          @apply cai-bg-neon-blue-color cai-text-white-color;
+        }
+      }
+    }
+  }
+}
+
+.ng-select.ng-select-disabled>.ng-select-container {
+  @apply cai-bg-white-color ;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

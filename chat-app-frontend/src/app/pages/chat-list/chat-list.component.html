@@ -1,0 +1,21 @@
+<div class="cai-flex cai-flex-col cai-min-h-screen">
+	<div
+		class="cai-bg-neon-blue-color max-sm:cai-py-3 text-lg cai-p-4 cai-sticky cai-top-0 cai-shadow-md cai-z-[999]">
+		Users
+	</div>
+	<div class="cai-w-[800px] cai-max-w-full cai-mx-auto cai-px-4">
+		<mat-card>
+			<mat-list>
+				@for (user of userList; track user) {
+				<mat-divider></mat-divider>
+				<span (click)="navigatetoChat(user.id,user.roomId)">
+					<mat-list-item>
+						<mat-icon matListItemIcon>person</mat-icon>
+						<div matListItemTitle class="cai-capitalize">{{ user.name }}</div>
+					</mat-list-item>
+				</span>
+				}
+			</mat-list>
+		</mat-card>
+	</div>
+</div>

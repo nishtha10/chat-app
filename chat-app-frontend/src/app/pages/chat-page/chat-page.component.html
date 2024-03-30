@@ -1,0 +1,64 @@
+<div class="cai-flex cai-flex-col cai-min-h-screen">
+  <div
+    class="cai-bg-neon-blue-color max-sm:cai-py-3 text-lg cai-p-4 cai-sticky cai-top-0 cai-shadow-md cai-z-[999]">
+    Chat Application
+  </div>
+
+  <div class="cai-w-[800px] cai-max-w-full cai-mx-auto cai-px-4">
+    <div class="cai-py-6 cai-flex cai-flex-col cai-gap-y-6">
+      <!-- loggedInuser -->
+      <ng-container *ngFor="let msg of chatHistory">
+        <div class="cai-flex cai-max-w-[75%] cai-ml-auto" *ngIf="msg.from === loggedInUser.id">
+          <div class="cai-bg-blue-color cai-p-3 cai-rounded cai-mr-3">
+            {{ msg.message }}
+          </div>
+          <div class="cai-h-12 cai-w-12 cai-min-w-12 cai-rounded-3xl cai-overflow-hidden">
+            <img src="./assets/images/user.svg" alt="user" class="cai-object-cover cai-h-full cai-w-full" width="48"
+              height="48">
+          </div>
+        </div>
+        <!-- end -->
+
+        <!-- chat -->
+        <ng-container *ngIf="msg.from !== loggedInUser.id">
+          <ng-container *ngTemplateOutlet="chatbot; context:{ messageData : msg.message}" />
+        </ng-container>
+      </ng-container>
+      <!-- end -->
+
+      <!-- chatbot -->
+      <ng-template #chatbot let-messageData="messageData">
+        <div class="cai-flex cai-max-w-[75%]">
+          <div class="cai-h-12 cai-w-12 cai-min-w-12 cai-rounded-3xl cai-overflow-hidden">
+            <img src="./assets/images/robo.svg" alt="robot" class="cai-object-cover cai-h-full cai-w-full" width="48"
+              height="48">
+          </div>
+          <div class="cai-bg-powder-blue-color cai-p-3 cai-rounded cai-ml-3">
+            <p>{{ messageData }}</p>
+          </div>
+        </div>
+      </ng-template>
+      <!-- end -->
+    </div>
+  </div>
+
+  <!-- user input section  -->
+  <div class="cai-bg-powder-blue-color cai-mt-auto cai-sticky cai-bottom-0 cai-p-4 cai-z-[9999]">
+    <div class="cai-relative cai-w-[800px] cai-max-w-full cai-mx-auto">
+      <form form="ngForm" (ngSubmit)="onSubmit()">
+        <input [(ngModel)]="userInput" autocomplete="off"
+          class="cai-border cai-placeholder-steel-blue-color cai-px-4 cai-outline-none cai-w-full cai-h-12 cai-rounded-md"
+          type="text" name="message" id="" placeholder="Type your message here...">
+        <button class="cai-w-9 cai-h-9 cai-absolute cai-right-4 cai-top-1/2 -cai-translate-y-1/2" type="submit"
+          [disabled]="!userInput">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="100 -150 810 812"
+            [attr.fill]="!userInput ? '#939CB0' : '#000000'">
+            <path
+              d="M476.59 227.05l-.16-.07L49.35 49.84A23.56 23.56 0 0027.14 52 24.65 24.65 0 0016 72.59v113.29a24 24 0 0019.52 23.57l232.93 43.07a4 4 0 010 7.86L35.53 303.45A24 24 0 0016 327v113.31A23.57 23.57 0 0026.59 460a23.94 23.94 0 0013.22 4 24.55 24.55 0 009.52-1.93L476.4 285.94l.19-.09a32 32 0 000-58.8z" />
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+  <!-- end -->
+</div>
